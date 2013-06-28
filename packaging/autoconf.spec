@@ -10,6 +10,7 @@ Summary:        A GNU Tool for Automatically Configuring Source Code
 License:        GPL-3.0+
 Group:          Development/Tools/Building
 Source:         autoconf-%{version}.tar.xz
+Source1001: 	autoconf.manifest
 BuildArch:      noarch
 
 %description
@@ -27,6 +28,7 @@ only required for the generation of the scripts, not their use.
 
 %prep
 %setup -q -n autoconf-%{version}
+cp %{SOURCE1001} .
 
 %build
 %configure
@@ -50,6 +52,7 @@ rm -rf %{buildroot}%{_infodir}/dir
 
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %doc COPYING
 %{_prefix}/bin/*
