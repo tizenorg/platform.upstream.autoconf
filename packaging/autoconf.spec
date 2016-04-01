@@ -31,6 +31,9 @@ only required for the generation of the scripts, not their use.
 cp %{SOURCE1001} .
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 %configure
 make %{?_smp_mflags}
 
